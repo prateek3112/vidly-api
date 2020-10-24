@@ -65,6 +65,7 @@ router.put('/:id', [auth, validateObjectId, validate(validateMovie)], async (req
 });
 
 router.delete('/:id', [auth, validateObjectId], async (req, res) => {
+    debugger;
     let movie = await Movie.findById(req.params.id);
 
     if (!movie) return res.status(404).send(errorResponse(['Movie not found.']));
